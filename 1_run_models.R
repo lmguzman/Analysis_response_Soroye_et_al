@@ -65,7 +65,7 @@ run.case <- function(case) {
       ## constrain to sites with at least once detection
       if(case %in% c('NA-constrained', 'EU-constrained')) {
 
-        sites.keep <- which(apply(win.data$y, 1, sum)>1)
+        sites.keep <- which(apply(win.data$y, 1, sum)>=1)
         win.data$y       <- win.data$y[sites.keep,,]
         win.data$sampmat <- win.data$sampmat[sites.keep,,]
         win.data$quadID  <- win.data$quadID[sites.keep]

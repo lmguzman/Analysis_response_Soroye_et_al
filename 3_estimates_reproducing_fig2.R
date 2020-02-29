@@ -39,6 +39,7 @@ occudat_mod <-
 
 f2_NA <- occudat_mod %>% 
   filter(!is.na(procc_change)) %>%
+  filter(!(species == "distinguendus" & continent == "1")) %>% 
   group_by(species, continent) %>% 
   summarise(siteoccu_hist= mean(hist_occu, na.rm = T), siteoccu_pres = mean(curr_occu, na.rm = T)) %>% 
   mutate(siteoccu_ch= siteoccu_pres-siteoccu_hist,
